@@ -1,6 +1,10 @@
 <?php
     include "conexao.php";
 
+    if(!isset($_SESSION["usuario"])){
+        session_start();
+    }
+
     $id_usuario = $_SESSION["usuario"];
 
     $select = "SELECT permissao FROM usuario WHERE id_usuario='$id_usuario'";

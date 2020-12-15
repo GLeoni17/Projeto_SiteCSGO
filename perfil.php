@@ -59,7 +59,7 @@ echo"<script>
 
     <input type='text' name='alterar_nome' placeholder='Nome...' value='$nome' > <br><br>
     <input type='email' name='alterar_email' placeholder='Email...' value='$email' > <br><br>
-    <input type='password' name='alterar_senha' placeholder='Senha...' value='password'> <br><br>
+    <input type='password' name='alterar_senha' placeholder='Trocar senha...'> <br><br>
 
     <input type='text' name='alterar_nickname' placeholder='Nome no jogo...' value='$nickname' ><br><br>
     <input type='number' name='alterar_idade' placeholder='Idade' value='$idade' > <br><br>

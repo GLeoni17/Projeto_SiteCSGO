@@ -53,7 +53,7 @@ verifica(3);
                         }
                     }
                 ?><br><br>
-            <button id="cadastra">Cadastrar</button>
+            <button type="button" id="cadastra">Cadastrar</button>
         </form>
     </div>
 </body>

@@ -36,11 +36,13 @@ Tem que esperar voce ser adicionado a algum time para aparecer no rank, enquanto
 Login
 Permissoes
 
-Erro alterar jogador pelo treinador 2a vez (JSON script)
+//Erro alterar jogador pelo treinador 2a vez (JSON script)
 
-Não vem mensagem apos o insere campeonato
+//Não vem mensagem apos o insere campeonato
 
-Erro SESSION 2a vez lista campeonato
+//Erro SESSION 2a vez lista campeonato
+
+Trocar ou nao a senha, se for 
 
 
 

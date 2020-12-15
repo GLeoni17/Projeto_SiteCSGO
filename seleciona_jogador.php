@@ -3,21 +3,25 @@
 
     include "conexao.php";
 
-    $id_usuario = $_POST["id_usuario"];
+    $id_usuario = $_GET["id_usuario"];
 
     $select = "SELECT usuario.nickname as nickname, usuario.nome as nome, usuario.idade as idade, 
     usuario.posicao as posicao, times.nome as nome_time FROM usuario INNER JOIN times ON usuario.cod_time=times.id_time";
 
     if(isset($_GET["method"])){
-        $select.= " WHERE usuario.permissao='1'";
+        $select.= " WHERE usuario.permissao='1'"; // Pega todos os jogadores para atualizar a tabela
     }else{
-        $select.= " WHERE id_usuario='$id_usuario'";
+        $select.= " WHERE id_usuario='$id_usuario'"; // Pega para o modal
     }
+
+    //die($select);
 
     $resultado = mysqli_query($con,$select)
         or die(mysqli_error($con));
 
-    $linha = mysqli_fetch_assoc($resultado);
+    while($row = mysqli_fetch_assoc($resultado)){
+        $matriz[] = $row;
+    }
 
-    echo json_encode($linha);
+    echo json_encode($matriz);
 ?>
