@@ -1,0 +1,51 @@
+footer {
+    position: fixed;
+    height: 50px;
+    background-color:#fafaf0;
+    padding:15px;
+    text-align:center;
+    font-weight:bold;
+    bottom: 0;
+    width: 100%;
+}
+div{
+    padding:10px;
+}
+
+a:link {
+    color: black;
+    font-weight:bold;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: black;
+    font-weight:bold;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: yellow;
+    font-weight:bold;
+  }
+
+  a.menu:hover {
+    color: green;
+    font-weight:bold;
+  }
+  
+  /* selected link */
+  a:active {
+    color: yellow;
+    font-weight:bold;
+  }
+
+  li{
+    color: black;
+      margin-left:20px;
+  }
+
+  img{
+      height: 5vh;
+      width: 5vh;
+  }

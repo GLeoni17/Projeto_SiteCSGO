@@ -1,0 +1,46 @@
+Jogadores
+Times
+Campeonatos
+
+Escolher um assunto qualquer, 3 forms, 3 listar, 3 tabelas interligadas no banco, requisições AJAX para cadastrar e listar e alterações em textos e imagens
+
+Nivel de permissões
+0 - Convidado
+
+Convidado consegue listar os jogadores, times e eventos
+Ele envia uma solicitação para ser jogador, dono de time ou organizador, mas até o administrador aceitar ele continua com permissão 0
+
+1 - Jogador
+
+Tem todas as permissões de convidado mas está adicionado na lista de jogadores e pode editar seus dados na tabela
+
+2 - Dono do time  - Consegue cadastrar jogadores e times -
+3 - Organizador de campeonato - Consegue cadastrar campeonatos
+4 - Administrador
+
+
+Cadastro
+Id
+Nome
+Email
+Senha
+Nickname
+Idade
+Posicao
+
+Tem que esperar voce ser adicionado a algum time para aparecer no rank, enquanto isso somente permissao de convidado
+
+
+
+
+Login
+Permissoes
+
+Erro alterar jogador pelo treinador 2a vez (JSON script)
+
+Não vem mensagem apos o insere campeonato
+
+Erro SESSION 2a vez lista campeonato
+
+
+

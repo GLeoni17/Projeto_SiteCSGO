@@ -1,0 +1,25 @@
+button{
+    border:none!important;
+    background-color: white!important;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline: thin dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+    color:red;   
+}
+
+.com_borda{
+    border:1px solid black;
+}
+
+.remover_time{
+    color: red;
+}
+
+table{
+    width: 500px;
+}
