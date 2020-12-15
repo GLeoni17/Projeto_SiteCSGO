@@ -10,5 +10,5 @@
     $bd = "projeto_csgo";
 
 
-    $con = mysqli_connect($host, $user, $password, $bd) or die(mysqli_error($con));
+    $con = mysqli_connect($host, $user, $senha, $bd) or die("Erro ao conectar ao banco de dados.");
 ?>
