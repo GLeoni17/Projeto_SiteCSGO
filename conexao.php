@@ -4,11 +4,11 @@
     $password = "usbw";
     $bd = "trabalho_pratico";*/
 
-    $local = "db4free.net:3306";
+    $host = "db4free.net:3306";
     $user = "gleoni2";
-    $senha = "usbwusbw";
+    $password = "usbwusbw";
     $bd = "projeto_csgo";
 
 
-    $con = mysqli_connect($host, $user, $senha, $bd) or die("Erro ao conectar ao banco de dados.");
+    $con = mysqli_connect($host, $user, $password, $bd) or die("Erro ao conectar ao banco de dados.");
 ?>
