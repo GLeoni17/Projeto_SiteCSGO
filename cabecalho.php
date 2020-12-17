@@ -60,10 +60,11 @@ function cabecalho(){
                             //echo "<li class='nav-item'>
                                 //<a class='menu' href='form_jogador.php'>Jogador</a>
                                // </li>";
-
-                            echo "<li class='nav-item'>
+                            if($info["permissao"] == 2 || $info["permissao"] == 4){
+                                echo "<li class='nav-item'>
                                 <a class='menu' href='form_time.php'>Time</a>
                                 </li>";
+                            }
                             
                             if($info["permissao"] > 2){ // Precisa ser organizador de campeonatos pra cima pra registrar um novo campeonato
                                 echo "<li class='nav-item'>
