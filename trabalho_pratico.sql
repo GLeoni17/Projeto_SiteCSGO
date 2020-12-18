@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 15-Dez-2020 às 04:02
+-- Data de Criação: 18-Dez-2020 às 22:54
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -17,10 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de Dados: `projeto_csgo`
+-- Base de Dados: `trabalho_pratico`
 --
-CREATE DATABASE IF NOT EXISTS `projeto_csgo` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `projeto_csgo`;
+CREATE DATABASE IF NOT EXISTS `trabalho_pratico` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `trabalho_pratico`;
 
 -- --------------------------------------------------------
 
@@ -33,21 +33,20 @@ CREATE TABLE IF NOT EXISTS `campeonatos` (
   `nome` varchar(100) NOT NULL,
   `cod_usuario` int(11) NOT NULL,
   PRIMARY KEY (`id_campeonato`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Extraindo dados da tabela `campeonatos`
 --
 
 INSERT INTO `campeonatos` (`id_campeonato`, `nome`, `cod_usuario`) VALUES
-(1, 'teste3', 0),
-(2, 'teste2', 0),
-(3, '', 0),
+(1, 'teste6', 0),
+(2, 'teste3', 0),
 (4, 'te7', 0),
 (5, 'tes3', 0),
-(6, 'Campeonato3', 0),
 (11, 'campteste', 0),
-(12, 'teste35', 5);
+(12, 'teste35', 5),
+(14, 'tc', 5);
 
 -- --------------------------------------------------------
 
@@ -57,10 +56,21 @@ INSERT INTO `campeonatos` (`id_campeonato`, `nome`, `cod_usuario`) VALUES
 
 CREATE TABLE IF NOT EXISTS `correio` (
   `id_carta` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(100) NOT NULL,
   `conteudo` text NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  PRIMARY KEY (`id_carta`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `cod_remetente` int(11) NOT NULL,
+  PRIMARY KEY (`id_carta`),
+  KEY `cod_remetente` (`cod_remetente`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Extraindo dados da tabela `correio`
+--
+
+INSERT INTO `correio` (`id_carta`, `titulo`, `conteudo`, `id_usuario`, `cod_remetente`) VALUES
+(2, 'Titulo', 'conteudo, bla bla bla', 19, 1),
+(3, 'Mensagem Teste2', 'Muito massa', 19, 4);
 
 -- --------------------------------------------------------
 
@@ -72,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `times` (
   `id_time` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   PRIMARY KEY (`id_time`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Extraindo dados da tabela `times`
@@ -82,8 +92,8 @@ INSERT INTO `times` (`id_time`, `nome`) VALUES
 (0, 'Sem Time'),
 (7, 'G2'),
 (8, 'MIBR'),
-(10, '123'),
-(12, 'TimeTeste8');
+(12, 'TimeTeste8'),
+(15, 'Meutime');
 
 -- --------------------------------------------------------
 
@@ -99,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `times_campeonato` (
   KEY `cod_campeonato` (`cod_campeonato`),
   KEY `cod_time` (`nome_time`),
   KEY `nome_time` (`nome_time`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
 
 --
 -- Extraindo dados da tabela `times_campeonato`
@@ -113,13 +123,12 @@ INSERT INTO `times_campeonato` (`id_times_campeonato`, `nome_time`, `cod_campeon
 (5, 'G2', 4),
 (6, '123', 5),
 (7, 'MIBR', 5),
-(8, '123', 6),
-(9, 'G2', 6),
-(10, 'MIBR', 6),
 (15, 'MIBR', 11),
 (16, 'TimeTeste8', 11),
 (17, '123', 12),
-(18, 'MIBR', 12);
+(18, 'MIBR', 12),
+(21, 'G2', 14),
+(22, 'MIBR', 14);
 
 -- --------------------------------------------------------
 
@@ -140,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `cod_time` int(11) NOT NULL,
   PRIMARY KEY (`id_usuario`),
   KEY `cod_time` (`cod_time`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -148,11 +157,14 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 
 INSERT INTO `usuario` (`id_usuario`, `email`, `senha`, `nome`, `posicao`, `permissao`, `idade`, `nickname`, `permissao_requerida`, `cod_time`) VALUES
 (1, 'email@adm', 'e10adc3949ba59abbe56e057f20f883e', 'Gabriel', 'Nenhuma', 4, 0, '', 0, 0),
-(3, 'a@a.com', '202cb962ac59075b964b07152d234b70', 'Leoni', 'Suporte', 0, 0, '', 0, 0),
 (4, 't@a.com', '81dc9bdb52d04dc20036dbd8313ed055', 'Treinador_teste1', '', 2, 20, 'TT1', 2, 12),
 (5, 'c@a.com', '81dc9bdb52d04dc20036dbd8313ed055', 'Org_teste1', '', 3, 0, '', 0, 0),
-(12, 'g@a', '202cb962ac59075b964b07152d234b70', 'Gabriel', '', 1, 15, 'Leoni', 1, 0),
-(14, 'g3@a', '202cb962ac59075b964b07152d234b70', 'Gabriel4', 'IGL', 1, 16, 'teste7', 2, 12);
+(12, 'g@a', '202cb962ac59075b964b07152d234b70', 'Gabriel', '', 1, 15, 'Leoni3', 1, 0),
+(14, 'g3@a', '202cb962ac59075b964b07152d234b70', 'Gabriel4', 'IGL', 1, 16, 'teste10', 2, 15),
+(15, 'j@a.com', '81dc9bdb52d04dc20036dbd8313ed055', 'Jogador1', 'Suporte', 1, 20, 'J2', 1, 0),
+(18, 'j2@a.com', '202cb962ac59075b964b07152d234b70', 'Jogador2', 'IGL', 1, 21, 'J4', 1, 12),
+(19, 'a@a.com', '202cb962ac59075b964b07152d234b70', 'Apreciador1', '', 0, 12, 'A1', 0, 0),
+(21, 'at1@a.com', 'd41d8cd98f00b204e9800998ecf8427e', 'Apreciador1', '', 4, 12, 'Teste1', 4, 0);
 
 --
 -- Constraints for dumped tables
