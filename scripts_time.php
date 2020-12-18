@@ -63,13 +63,14 @@
                 $select = "SELECT cod_time FROM usuario WHERE id_usuario='$id_usuario'";
                 $res = mysqli_query($con, $select);
                 $res = mysqli_fetch_assoc($res);
-                echo "var cod_time = ".$res["cod_time"].";";
+                echo "var permissao = ".$_SESSION["permissao"].";
+                var cod_time = ".$res["cod_time"].";";
             ?>
             $.each(r,function(i,a){  
                 if(a.id_time != 0){
                     t += "<li><h4>";             
                     t += a.nome;
-                    if(a.id_time == cod_time){
+                    if(permissao==4 || a.id_time == cod_time){
                         t += "<button class='alterar_time' value="+a.id_time+" data-toggle='modal' data-target='#modal'>✏️</button> ";
                         t += "<button class='remover_time' value="+a.id_time+">ˣ</button>";
                     }                    

@@ -23,6 +23,9 @@
         $cod_campeonato = $row["cod_usuario"];
 
         $id_campeonato = $row["id_campeonato"];
+
+        
+
         $select2 = "SELECT *
                     FROM times_campeonato
                     WHERE cod_campeonato = '$id_campeonato'
