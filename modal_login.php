@@ -85,7 +85,14 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Cadastro</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Cadastro
+        <?php
+          if(isset($_SESSION)){
+            echo "Novo Jogador";
+          }
+        ?>
+        
+        </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -103,12 +110,25 @@
           <input type="number" name="idade" placeholder="Idade" required> <br><br>
 
           <span> Voce é? </span><br>
-          <input type="radio" name="profissao" value="0"> Apreciador<br>
-          <input type="radio" name="profissao" value="1"> Jogador<br>
-          <input type="radio" name="profissao" value="2"> Dono de time<br>
-          <input type="radio" name="profissao" value="3"> Organizador de campeonato<br><br>
+          <?php
 
-          <input id='posicao' type='text' name='posicao' placeholder='Posição que joga...' disabled> <br><br>
+            if(isset($_SESSION)){
+              echo "<input type='radio' name='profissao' value='0' disabled> Apreciador<br>
+              <input type='radio' name='profissao' value='1' checked> Jogador<br>
+              <input type='radio' name='profissao' value='2' disabled> Dono de time<br>
+              <input type='radio' name='profissao' value='3' disabled> Organizador de campeonato<br><br>
+              <input id='posicao' type='text' name='posicao' placeholder='Posição que joga...'> <br><br>
+              ";
+            }else{
+              echo "<input type='radio' name='profissao' value='0'> Apreciador<br>
+              <input type='radio' name='profissao' value='1'> Jogador<br>
+              <input type='radio' name='profissao' value='2'> Dono de time<br>
+              <input type='radio' name='profissao' value='3'> Organizador de campeonato<br><br>
+              <input id='posicao' type='text' name='posicao' placeholder='Posição que joga...' disabled> <br><br>
+              ";
+            }
+          
+          ?>        
 
           <input type="hidden" id="permissao" max="3">
 

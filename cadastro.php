@@ -32,7 +32,7 @@
                                     '$senha', 
                                     '$nome',
                                     '$posicao',
-                                    '0',
+                                    '$permissao_requerida',
                                     '$idade',
                                     '$nickname',
                                     '$permissao_requerida',

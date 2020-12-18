@@ -30,7 +30,7 @@
 
         $res2 = mysqli_query($con, $select2);
         echo "<h2><b>".$row["nome"]."</b>"; 
-        if($permissao>2 && $id_usuario == $cod_campeonato){ // So pode alterar o dado se for o dono do campeonato
+        if($permissao==4|| $permissao==3 && $id_usuario == $cod_campeonato){ // So pode alterar o dado se for o dono do campeonato
             echo "<button class='alterar_campeonato' value='$id' data-toggle='modal' data-target='#modal'>✏️</button> 
             <button class='remover_campeonato' value='$id'>ˣ</button>";
         }

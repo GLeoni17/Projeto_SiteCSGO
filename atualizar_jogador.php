@@ -20,15 +20,29 @@
                                 idade='$idade',
                                 posicao='$posicao',
                                 permissao_requerida='$permissao_requerida'
-                                WHERE id_usuario='$id'";
+                               ";
     
-    mysqli_query($con,$update)
-        or die(mysqli_error($con));
+    
 
 
     if($_GET["perfil"] == 1){
+
+        if(isset($senha)){
+            $senha = md5($senha);
+            $update .= ", senha ='$senha'";
+        }
+        
+        $update .= " WHERE id_usuario='$id'";
+        mysqli_query($con,$update)
+        or die(mysqli_error($con));
         header("location:index.php?alterar=1");
+
     }else{
+
+        $update .= " WHERE id_usuario='$id'";
+        mysqli_query($con,$update)
+        or die(mysqli_error($con));
+
         echo "1";
     }
 

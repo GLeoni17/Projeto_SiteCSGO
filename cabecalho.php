@@ -62,6 +62,9 @@ function cabecalho(){
                                // </li>";
                             if($info["permissao"] == 2 || $info["permissao"] == 4){
                                 echo "<li class='nav-item'>
+                                <a href='#' data-toggle='modal' data-target='#modal_cadastro'>Jogador</a>
+                                </li>
+                                <li class='nav-item'>
                                 <a class='menu' href='form_time.php'>Time</a>
                                 </li>";
                             }
