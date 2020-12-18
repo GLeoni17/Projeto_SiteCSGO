@@ -1,5 +1,16 @@
 <?php
 
+function numero_mensagens(){
+    include "conexao.php";
+    $mensagens = "SELECT conteudo FROM correio WHERE id_usuario = '".$_SESSION["usuario"]."'";
+    $res = mysqli_query($con, $mensagens);
+    echo mysqli_num_rows($res);
+    if(mysqli_num_rows($res)>0){
+        $_SESSION["mensagens"] = mysqli_num_rows($res);
+    }
+}
+    
+
 function cabecalho(){
     session_start();
     //print_r($_SESSION);
@@ -111,7 +122,15 @@ function cabecalho(){
                         <li>
                             <ul class='navbar-nav'>
                                 <li role='presentation'>
-                                    <a href='correio.php'>✉</a>
+                                    <a href='correio.php'>✉
+                                    <span class='numero_mensagens'>
+                                    ";
+
+                                    numero_mensagens();
+                                    
+                                    echo"
+                                    </span>
+                                    </a>
                                 </li>
                             </ul>
                         </li>
@@ -157,6 +176,13 @@ function cabecalho(){
             }
             
         }
+
+        if(isset($_GET["alterar"])){
+            if($_GET["alterar"]==1){
+                echo "<div id='sucesso'>Dado alterado com sucesso!</div>";
+            }
+        }
+
         if(isset($_GET["cadastro"])){
             echo "<div id='sucesso'>Cadastrado com sucesso!</div>";
         }

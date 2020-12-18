@@ -87,7 +87,7 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Cadastro
         <?php
-          if(isset($_SESSION)){
+          if(isset($_SESSION["usuario"])){
             echo "Novo Jogador";
           }
         ?>
@@ -111,8 +111,7 @@
 
           <span> Voce é? </span><br>
           <?php
-
-            if(isset($_SESSION)){
+            if(isset($_SESSION["usuario"])){
               echo "<input type='radio' name='profissao' value='0' disabled> Apreciador<br>
               <input type='radio' name='profissao' value='1' checked> Jogador<br>
               <input type='radio' name='profissao' value='2' disabled> Dono de time<br>

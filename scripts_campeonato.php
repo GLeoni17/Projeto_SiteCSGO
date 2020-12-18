@@ -18,6 +18,8 @@
 
         $(".remover_campeonato").click(function(){
 
+            
+
             i = $(this).val();
             t = "times_campeonato";
             c = "cod_campeonato";
@@ -42,11 +44,9 @@
 
        }
 
-       define_alterar_remover();
+       atualizar_tabela();
 
        $(".salvar").click(function(){
-
-           console.log(id_campeonato);
 
            p = {
                 id_campeonato:id_campeonato,
@@ -55,7 +55,6 @@
            
            
            $.post("atualizar_campeonato.php", p ,function(r){
-               console.log(r);
             if(r=='1'){
                 $("#msg").html("Campeonato alterado com sucesso.");
                 $(".close").click();

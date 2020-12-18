@@ -60,7 +60,16 @@
 
        function atualizar_tabela(){           
         $.get("seleciona_jogador.php",{"method":1, "id_usuario":id_usuario}, function(r){
-            console.log(r);
+
+            <?php
+                    echo "var permissao = ".$_SESSION["permissao"].";";
+                    echo "var cod_time = ".$_SESSION["cod_time"].";"
+            ?>
+
+
+            console.log(permissao);
+            console.log(cod_time);
+            
             t = "";
             t+= "<table>";
             t+=     "<tr>";
@@ -69,14 +78,19 @@
             t+=         "<th class='com_borda'>Posição</th>";
             t+=         "<th class='com_borda'>Time</th>";
             t+=     "</tr>";
-            $.each(r,function(i,a){   
+            $.each(r,function(i,a){  
+                
                 t+= "<tr>"
                 t+=     "<td class='com_borda'>"+a.nickname+"</td>";
                 t+=     "<td class='com_borda'>"+a.idade+"</td>";
                 t+=     "<td class='com_borda'>"+a.posicao+"</td>";
                 t+=     "<td class='com_borda'>"+a.nome_time+"</td>";
-                t+=     "<td><button class='alterar_jogador' value='$id' data-toggle='modal' data-target='#modal'>✏️</button><td> ";
-                t+=     "<td><button class='remover_jogador' value='$id'>X</button></td>";
+                
+                if(permissao==4 || (a.id_time!=0 && (permissao==2 && a.id_time == cod_time))){
+                    t+=     "<td><button class='alterar_jogador' value='$id' data-toggle='modal' data-target='#modal'>✏️</button><td> ";
+                    t+=     "<td><button class='remover_jogador' value='$id'>X</button></td>";
+                }
+                
                 t+= "</tr>";
                 // Fazer um metodo post pra escrever    
             });

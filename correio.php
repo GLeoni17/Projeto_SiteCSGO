@@ -27,12 +27,47 @@ echo"<style>
 
 cabecalho();
 
-$id = $_SESSION["usuario"];
-
-
 echo"<div class='container'>
         <div class='child'>
-            <h3>Under construction!</h3>
+            ";
+
+        if($_SESSION["mensagens"]==0){
+            echo "<h4>Não há nenhuma mensagem!</h4>";
+        }else{  
+            $id = $_SESSION["usuario"];
+            $permissao = $_SESSION["permissao"];
+
+            $select = "SELECT titulo, conteudo, cod_remetente FROM correio WHERE id_usuario='$id'";
+            $res = mysqli_query($con, $select);
+            while($linha = mysqli_fetch_assoc($res)){
+
+                echo "<h4>".$linha["titulo"]."</h4>";
+                echo"<p>".$linha["conteudo"]."</p>";
+
+                $remetente = $linha["cod_remetente"];
+                
+                $select = "SELECT nome, permissao FROM usuario WHERE id_usuario = '$remetente'";
+                $res2 = mysqli_query($con, $select);
+                $res2 = mysqli_fetch_assoc($res2);
+
+                echo "<em>".$res2["nome"];
+
+                if($res2["permissao"]==4){
+                    echo "(admin)";
+                }else if($res2["permissao"]==3){
+                    echo "(organizador de campeonatos)";
+                }else if($res2["permissao"]==2){
+                    echo"(dono de time)";
+                }else if($res2["permissao"]==1){
+                    echo"(jogador)";
+                }else{
+                    echo"(apreciador)";
+                }
+                echo "</em><hr>";
+            }
+        }   
+
+            echo"
         </div>
     </div>";
 

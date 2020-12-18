@@ -62,7 +62,7 @@ while($row = mysqli_fetch_assoc($res)){
             <td class='com_borda'>$idade</td>
             <td class='com_borda'>$posicao</td>
             <td class='com_borda'>$time</td>";
-        if($resultado["permissao"]==4 || ($resultado["permissao"]==2 && $id_time == $resultado["cod_time"]) ){ // So pode alterar o dado se for o jogador
+        if($id_time!=0 && ($resultado["permissao"]==4 || ($resultado["permissao"]==2 && $id_time == $resultado["cod_time"])) ){ // So pode alterar o dado se for o jogador
             echo "<td><button class='alterar_jogador' value='$id' data-toggle='modal' data-target='#modal'>✏️</button><td> 
             <td><button class='remover_jogador' value='$id'>X</button></td>";
         }

@@ -22,7 +22,7 @@
             i = $(this).val();
             t = "times";
             c = "id_time";
-            p = {tabela:t, id:i, coluna:c};
+            p = {tabela:t, id:i, coluna:c, remover_time:1};
             $.post("remover.php", p, function(r){
                 if(r==1){
                     $("#msg").html("Time removido com sucesso.");

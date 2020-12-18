@@ -32,7 +32,11 @@ verifica(3);
                     }
                 });
                 $.post("insere_campeonato.php", {"nome":nome, "checkbox_value":checkbox_value, "id_usuario":id_usuario}, function(msg){
-                    alert(msg);
+                    if(msg == 1){
+                        alert("Campeonato criado com sucesso.");
+                    }else{
+                        alert("Erro ao criar o campeonato.");
+                    }
                 });
             });
         });

@@ -19,7 +19,7 @@
                                 nickname='$nickname',
                                 idade='$idade',
                                 posicao='$posicao',
-                                permissao_requerida='$permissao_requerida'
+                                permissao='$permissao_requerida'
                                ";
     
     
@@ -30,6 +30,10 @@
         if(isset($senha)){
             $senha = md5($senha);
             $update .= ", senha ='$senha'";
+        }
+
+        if($permissao_requerida==3 || $permissao_requerida==0){
+            $update .= ", cod_time='0'";
         }
         
         $update .= " WHERE id_usuario='$id'";

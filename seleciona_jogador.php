@@ -6,7 +6,7 @@
     $id_usuario = $_GET["id_usuario"];
 
     $select = "SELECT usuario.nickname as nickname, usuario.nome as nome, usuario.idade as idade, 
-    usuario.posicao as posicao, times.nome as nome_time FROM usuario INNER JOIN times ON usuario.cod_time=times.id_time";
+    usuario.posicao as posicao, times.id_time as id_time, times.nome as nome_time FROM usuario INNER JOIN times ON usuario.cod_time=times.id_time";
 
     if(isset($_GET["method"])){
         $select.= " WHERE usuario.permissao='1'"; // Pega todos os jogadores para atualizar a tabela
